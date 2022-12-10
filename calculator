@@ -1,0 +1,164 @@
+package calculator;
+
+import java.util.Scanner;
+public class calculator {
+
+    
+    static String calc (String input){
+    	
+    	input = input.replaceAll("\\s+","");
+    	String a = "";
+    	String b = "";
+    	int result = 0 ;
+    	String y = "дай числа меньше";
+    	String x = "дай числа больше";
+    	String o = "дай другие числа";
+    	int s = 0;
+    	int k = 0;
+    	if (input.contains("--")) return x;
+    	if ((input.contains("i")|| input.contains("x")|| input.contains("v")|| input.contains("l")|| input.contains("c")|| input.contains("I")|| input.contains("V")|| input.contains("X")||input.contains("L")||input.contains("C"))&&(input.contains("1")||input.contains("2")||input.contains("3")||input.contains("4")||input.contains("5")||input.contains("6")||input.contains("7")||input.contains("8")||input.contains("9")||input.contains("0"))) return o;
+    	if (input.contains("i")|| input.contains("x")|| input.contains("v")|| input.contains("l")|| input.contains("c")|| input.contains("I")|| input.contains("V")|| input.contains("X")||input.contains("L")||input.contains("C")){
+        	String [] rim = {"O", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII", "XIII", "XIV", "XV", "XVI", "XVII", "XVIII", "XIX", "XX",
+                    "XXI", "XXII", "XXIII", "XXIV", "XXV", "XXVI", "XXVII", "XXVIII", "XXIX", "XXX", "XXXI", "XXXII", "XXXIII", "XXXIV", "XXXV", "XXXVI", "XXXVII", "XXXVIII", "XXXIX", "XL",
+                    "XLI", "XLII", "XLIII", "XLIV", "XLV", "XLVI", "XLVII", "XLVIII", "XLIX", "L", "LI", "LII", "LIII", "LIV", "LV", "LVI", "LVII", "LVIII", "LIX", "LX",
+                    "LXI", "LXII", "LXIII", "LXIV", "LXV", "LXVI", "LXVII", "LXVIII", "LXIX", "LXX",
+                    "LXXI", "LXXII", "LXXIII", "LXXIV", "LXXV", "LXXVI", "LXXVII", "LXXVIII", "LXXIX", "LXXX",
+                    "LXXXI", "LXXXII", "LXXXIII", "LXXXIV", "LXXXV", "LXXXVI", "LXXXVII", "LXXXVIII", "LXXXIX", "XC",
+                    "XCI", "XCII", "XCIII", "XCIV", "XCV", "XCVI", "XCVII", "XCVIII", "XCIX", "C"};
+        	input = input.toUpperCase();
+        	if (input.contains("+")) {
+        		for (int i = 0; i < input.lastIndexOf('+'); i++)
+        			a = a + input.charAt(i);
+        	
+        	for(int i = input.lastIndexOf('+')+1; i <input.length(); i++)
+    			b = b + input.charAt(i);
+    	
+        	
+        	for (int i = 0; i<rim.length;i++) {
+        		if (rim[i].equals(a)) {s = i;}
+        	}
+        	for (int i = 0; i<rim.length;i++) {
+        		if (rim[i].equals(b)) {k = i;}
+        	}
+        	if (s>10 || k>10) return y;
+        	result = s+k;
+        	return rim[result];
+        	}
+        	if (input.contains("-")) {
+        		for (int i = 0; i < input.lastIndexOf('-'); i++)
+        			a = a + input.charAt(i);
+        	
+        	for(int i = input.lastIndexOf('-')+1; i <input.length(); i++)
+    			b = b + input.charAt(i);
+    	
+        	
+        	for (int i = 0; i<rim.length;i++) {
+        		if (rim[i].equals(a)) {s = i;}
+        	}
+        	for (int i = 0; i<rim.length;i++) {
+        		if (rim[i].equals(b)) {k = i;}
+        	}
+        	if (s<k) return x;
+        	if (s>10 || k>10) return y;
+        	result = s-k;
+        	return rim[result];
+        	}
+        	if (input.contains("*")) {
+        		for (int i = 0; i < input.lastIndexOf('*'); i++)
+        			a = a + input.charAt(i);
+        	
+        	for(int i = input.lastIndexOf('*')+1; i <input.length(); i++)
+    			b = b + input.charAt(i);
+    	
+        	
+        	for (int i = 0; i<rim.length;i++) {
+        		if (rim[i].equals(a)) {s = i;}
+        	}
+        	for (int i = 0; i<rim.length;i++) {
+        		if (rim[i].equals(b)) {k = i;}
+        	}
+        	if (s>10 || k>10) return y;
+        	result = s*k;
+        	return rim[result];
+        	}
+        	if (input.contains("/")) {
+        		for (int i = 0; i < input.lastIndexOf('/'); i++)
+        			a = a + input.charAt(i);
+        	
+        	for(int i = input.lastIndexOf('/')+1; i <input.length(); i++)
+    			b = b + input.charAt(i);
+    	
+        	
+        	for (int i = 0; i<rim.length;i++) {
+        		if (rim[i].equals(a)) {s = i;}
+        	}
+        	for (int i = 0; i<rim.length;i++) {
+        		if (rim[i].equals(b)) {k = i;}
+        	}
+        	if (s>10 || k>10) return y;
+        	if (s<k) return x;
+        	result = s/k;
+        	return rim[result];
+        	}
+        	
+    	}
+    	if (input.contains("1")||input.contains("2")||input.contains("3")||input.contains("4")||input.contains("5")||input.contains("6")||input.contains("7")||input.contains("8")||input.contains("9")||input.contains("0")) {
+    	if (input.contains("+")) {
+    		for (int i = 0; i < input.lastIndexOf('+'); i++)
+    			a = a + input.charAt(i);
+    		for(int i = input.lastIndexOf('+')+1; i <input.length(); i++)
+    			b = b + input.charAt(i);
+    		int f = Integer.parseInt (a);
+    		int j = Integer.parseInt (b);
+    		if (f>10 || j>10 ) return y; 
+    		if (f<0 || j<0 ) return x; 
+    		result = f + j; 
+    		
+    	}
+    	if (input.contains("-")) {
+    		for (int i = 0; i < input.lastIndexOf('-'); i++)
+    			a = a + input.charAt(i);
+    		for(int i = input.lastIndexOf('-')+1; i <input.length(); i++)
+    			b = b + input.charAt(i);
+    		int f = Integer.parseInt (a);
+    		int j = Integer.parseInt (b);
+    		if (f>10 || j>10) return y;
+    		if (f<0 || j<0 ) return x; 
+    		result = f - j; 
+    		
+    	}
+    	if (input.contains("*")) {
+    		for (int i = 0; i < input.lastIndexOf('*'); i++)
+    			a = a + input.charAt(i);
+    		for(int i = input.lastIndexOf('*')+1; i <input.length(); i++)
+    			b = b + input.charAt(i);
+    		int f = Integer.parseInt (a);
+    		int j = Integer.parseInt (b);
+    		if (f>10 || j>10) return y;
+    		if (f<0 || j<0 ) return x; 
+    		result = f * j; 
+    		
+    	}
+    	if (input.contains("/")) {
+    		for (int i = 0; i < input.lastIndexOf('/'); i++)
+    			a = a + input.charAt(i);
+    		for(int i = input.lastIndexOf('/')+1; i <input.length(); i++)
+    			b = b + input.charAt(i);
+    		int f = Integer.parseInt (a);
+    		int j = Integer.parseInt (b);
+    		if (f>10 || j>10) return y; 
+    		if (f<0 || j<0 ) return x; 
+    		result = f / j; 
+    		
+    	}
+    	String res = Integer.toString(result);
+        return res;
+    	}
+    	return o;
+    }
+    
+    public static void main(String args[]) {
+        Scanner num = new Scanner(System.in);
+       System.out.println( calc(num.nextLine()));
+    }
+}
