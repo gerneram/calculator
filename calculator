@@ -5,7 +5,8 @@ public class calculator {
 
     
     static String calc (String input){
-    	
+    	String wrang = "введи математический оператор";
+    	if (input.contains("+")||input.contains("-")||input.contains("/")||input.contains("*")) {
     	input = input.replaceAll("\\s+","");
     	String a = "";
     	String b = "";
@@ -154,7 +155,9 @@ public class calculator {
     	String res = Integer.toString(result);
         return res;
     	}
-    	return o;
+    	
+    	return o;}
+    	else return wrang;
     }
     
     public static void main(String args[]) {
